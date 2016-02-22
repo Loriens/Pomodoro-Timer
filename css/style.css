@@ -1,0 +1,49 @@
+body {
+	width: 780px;
+	margin: 0 auto;
+	font-family: "Arial", sans-serif;
+}
+
+/* START HEADER */
+
+.page-header {
+	font-size: 40px;
+	text-align: center;
+}
+
+  .pomodoro {
+  	color: red;
+  }
+
+/* END HEADER */
+
+/* START MAIN */
+
+main {
+	text-align: center;
+}
+
+  .timer {
+  	font-size: 50px;
+  	margin: 40px 0;
+  }
+
+  .button {
+  	width: 100px;
+  	padding: 5px 15px;
+  	font-size: 1.3em;
+  	background-color: #C9C9C9;
+  	background-image: linear-gradient(to bottom, #f7f7f7 90%, #898b91);
+  	border: 1px solid black;
+  	border-radius: 5px;
+  }
+
+    .button:active {
+  	  background-image: linear-gradient(to bottom, #898b91, #f7f7f7 10%);
+    }
+
+  .button:first-child {
+  	margin-right: 10px;
+  }
+
+/* END MAIN */
