@@ -1,36 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-
   	<meta charset="utf-8">
   	<link rel="stylesheet" href="css/normalize.css">
   	<link rel="stylesheet" href="css/style.css">
   	<title>
   		Главная
   	</title>
-
   </head>
   <body>
-
   	<header class="page-header">
-  		<span class="pomodoro">Pomodoro</span> Timer
+  		<div class="logo">
+  			Moose
+  		</div>
+  		<section class="contacts">
+  			<span class="phone">
+  				<img src="C:\Users\Vladislav\Desktop\Вёрстка\Макет MOOSE\images\icon-phone.png"> 0535 954 74 54
+  			</span>
+  			<span class="email">
+  				<img src="C:\Users\Vladislav\Desktop\Вёрстка\Макет MOOSE\images\icon-mail.png"> email@moose.com
+  			</span>
+  		</section>
+  		<nav class="page-nav">
+  		</nav>
   	</header>
-
-    <main>
-      <section class="timer">
-        TIME
-      </section>
-      <nav>
-        <button class="button">Start</button>
-        <button class="button">Options</button>
-      </nav>
-    </main>
-
-    <script src="js/script.js"></script>
-    <script>
-      var timer = new Timer("timer");
-      timer.setFullTime(3000);
-      timer.start();
-    </script>
   </body>
 </html>
