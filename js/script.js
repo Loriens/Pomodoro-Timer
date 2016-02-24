@@ -11,22 +11,13 @@ function Timer(className) {
 	var self = this;
 
 	this.start = function() {
-		this.timerDefault();
-		timer = setInterval(self.update, 1000);
+		if(buttonStart.innerHTML == "Pause") {
+			self.stop();
+			return;
+		}
+		if(!minutes && !seconds) self.setFullTime(fullTime);
+		timer = setInterval(update, 1000);
 		buttonStart.innerHTML = "Pause";
-	}
-
-	this.timerDefault = function() {
-		minutes = (fullTime >= 60 * 1000) ? (fullTime / (60 * 1000)) : 0;
-		seconds = fullTime / 1000 - minutes * 60;
-		setTime();
-		minusSecond();
-	}
-
-	this.update = function() {
-		setTime();
-		if(!minutes && !seconds) self.stop();
-		minusSecond();
 	}
 
 	this.stop = function() {
@@ -34,11 +25,35 @@ function Timer(className) {
 		buttonStart.innerHTML = "Start";
 	}
 
-	this.setFullTime = function(newFullTime) {
-		if(newFullTime > 0 && newFullTime < 60 * 60 * 1000) fullTime = newFullTime;
+	this.getTimer = function() {
+		return timerClass;
 	}
 
-	var setTime = function() {
+	this.defaultFullTime = function() {
+		minutes = 25;
+		seconds = 0;
+		setTimeHtml();
+		minusSecond();
+	}
+
+	this.setFullTime = function(newFullTime) {
+		if(newFullTime > 0 && newFullTime < 60 * 60 * 1000) fullTime = newFullTime;
+		seconds = (fullTime % (1000 * 60)) / 1000;
+		minutes = (fullTime - seconds * 1000) / (1000 * 60);
+		setTimeHtml();
+		minusSecond();
+	}
+
+	var update = function() {
+		setTimeHtml();
+		if(!minutes && !seconds) {
+			self.stop();
+			return;
+		}
+		minusSecond();
+	}
+
+	var setTimeHtml = function() {
 		timerClass.innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
 	}
 

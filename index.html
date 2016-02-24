@@ -6,7 +6,7 @@
   	<link rel="stylesheet" href="css/normalize.css">
   	<link rel="stylesheet" href="css/style.css">
   	<title>
-  		Главная
+  		Pomodoro Timer
   	</title>
 
   </head>
@@ -21,7 +21,7 @@
         TIME
       </section>
       <nav>
-        <button class="button">Start</button>
+        <button class="button" onclick="timer.start()">Start</button>
         <button class="button">Settings</button>
       </nav>
     </main>
@@ -29,8 +29,7 @@
     <script src="js/script.js"></script>
     <script>
       var timer = new Timer("timer");
-      timer.setFullTime(3000);
-      timer.start();
+      timer.setFullTime(30 * 60 * 1000);
     </script>
   </body>
 </html>
