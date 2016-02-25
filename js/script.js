@@ -1,6 +1,4 @@
-"use strict";
-
-// ДОДЕЛАТЬ ФУНКЦИОНАЛ КНОПКИ "СТАРТ". ОТПРАВИТЬ КОММИТ!
+﻿"use strict";
 
 function Timer(className) {
 	var fullTime = 25 * 60 * 1000;
