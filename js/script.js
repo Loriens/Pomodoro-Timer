@@ -1,32 +1,34 @@
 "use strict";
 
+// ДОДЕЛАТЬ ФУНКЦИОНАЛ КНОПКИ "СТАРТ". ОТПРАВИТЬ КОММИТ!
+
 function Timer(className) {
 	var fullTime = 25 * 60 * 1000;
 	var currentTime = fullTime;
 	var timerClass = document.getElementsByClassName(className)[0];
-	var buttonStart = document.getElementsByClassName("button")[0];
+	var buttonStartPause = document.getElementsByClassName("button")[0];
 	var minutes;
 	var seconds;
 	var timer;
 	var self = this;
 
 	this.start = function() {
-		if(buttonStart.innerHTML == "Pause") {
-			self.stop();
-			return;
-		}
 		if(!minutes && !seconds) self.setFullTime(fullTime);
 		timer = setInterval(update, 1000);
-		buttonStart.innerHTML = "Pause";
+		buttonStartPause.innerHTML = "Pause";
+		buttonStartPause.onclick = self.stop;
 	}
+
+	buttonStartPause.onclick = this.start;
 
 	this.stop = function() {
 		clearInterval(timer);
-		buttonStart.innerHTML = "Start";
+		buttonStartPause.innerHTML = "Start";
+		buttonStartPause.onclick = self.start;
 	}
 
-	this.getTimer = function() {
-		return timerClass;
+	this.getButtonStartPause = function() {
+		return buttonStartPause;
 	}
 
 	this.defaultFullTime = function() {
