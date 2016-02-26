@@ -1,5 +1,5 @@
 body {
-	width: 400px;
+	width: 100%;
 	margin: 0 auto;
 	font-family: "Arial", sans-serif;
 }
@@ -46,5 +46,29 @@ main {
   .button:first-child {
   	margin-right: 10px;
   }
+
+  .panel-settings {
+    margin: 40px auto;
+  }
+
+    .radio-buttons {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .radio-buttons:last-child {
+      margin-left: 50px;
+    }
+
+      .title-settings {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .radio-buttons label {
+        display: block;
+        text-align: left;
+      }
 
 /* END MAIN */
