@@ -5,6 +5,8 @@ function Timer() {
   var currentTime = fullTime;
   var timerClass;
   var buttonStartPause;
+  var buttonSettings;
+  var panelSettings;
   var buttonsFullTime;
   var buttonsBreakFullTime;
   var minutes;
@@ -13,25 +15,22 @@ function Timer() {
   var timer;
   var self = this;
 
-  this.startPause = function() {
-    if(!minutes && !seconds) self.setFullTime(fullTime);
-    timer = setInterval(update, 1000);
-    buttonStartPause.innerHTML = "Pause";
-    buttonStartPause.onclick = self.stop;
-  }
-
-  this.stop = function() {
-    clearInterval(timer);
-    buttonStartPause.innerHTML = "Start";
-  }
-
   this.setTimerClass = function(className) {
     timerClass = document.getElementsByClassName(className)[0];
   }
 
   this.setButtonStartPause = function(nameButton) {
-    buttonStartPause = document.getElementsByClassName(nameButton)[0];
-    buttonStartPause.onclick = self.startPause;
+    buttonStartPause = document.getElementsByName(nameButton)[0];
+    buttonStartPause.onclick = start;
+  }
+
+  this.setButtonSettings = function(nameButton) {
+    buttonSettings = document.getElementsByName(nameButton)[0];
+    buttonSettings.onclick = showSettings;
+  }
+
+  this.setPanelSettings = function(className) {
+    panelSettings = document.getElementsByClassName(className)[0];
   }
 
   this.setButtonsFullTime = function(nameButtons) {
@@ -79,6 +78,28 @@ function Timer() {
     breakFullTime = newBreakFullTime;
   }
 
+  var start = function() {
+    if(!minutes && !seconds) self.setFullTime(fullTime);
+    timer = setInterval(update, 1000);
+    buttonStartPause.innerHTML = "Pause";
+    buttonStartPause.onclick = stop;
+  }
+
+  var showSettings = function() {
+    buttonStartPause.disabled = true;
+    stop();
+    panelSettings.style.display = "block";
+    buttonSettings.onclick = hideSettings;
+  }
+
+  var hideSettings = function() {
+    panelSettings.style.display = "none";
+    buttonStartPause.disabled = false;
+    buttonSettings.onclick = showSettings;
+    buttonStartPause.onclick = start;
+  }
+
+
   var changeFullTime = function() {
     for(var i = 0; i < buttonsFullTime.length; i++) {
       if(buttonsFullTime[i].checked) {
@@ -97,10 +118,16 @@ function Timer() {
     }
   }
 
+  var stop = function() {
+    clearInterval(timer);
+    buttonStartPause.innerHTML = "Start";
+  }
+
+
   var update = function() {
     setTimeHtml();
     if(!minutes && !seconds) {
-      self.stop();
+      stop();
       return;
     }
     minusSecond();

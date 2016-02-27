@@ -21,8 +21,8 @@
         TIME
       </section>
       <section class="panel-control">
-        <button class="button">Start</button>
-        <button class="button">Settings</button>
+        <button class="button" name="start">Start</button>
+        <button class="button" name="settings">Settings</button>
       </section>
       <section class="panel-settings">
         <div class="radio-buttons">
@@ -43,7 +43,9 @@
     <script>
       var timer = new Timer();
       timer.setTimerClass("timer");
-      timer.setButtonStartPause("button");
+      timer.setButtonStartPause("start");
+      timer.setButtonSettings("settings");
+      timer.setPanelSettings("panel-settings");
       timer.defaultFullTime();
       timer.setButtonsFullTime("timerFullTime");
       timer.setButtonsBreakFullTime("timerBreakTime");
