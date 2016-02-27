@@ -29,20 +29,24 @@
           <div class="title-settings">Pomodoro</div>
           <label><input type="radio" name="timerFullTime" value="35"> 35 minutes</label>
           <label><input type="radio" name="timerFullTime" value="30"> 30 minutes</label>
-          <label><input type="radio" name="timerFullTime" value="20"> 25 minutes</label>
+          <label><input type="radio" name="timerFullTime" value="25"> 25 minutes</label>
         </div>
         <div class="radio-buttons">
           <div class="title-settings">Break</div>
-          <label><input type="radio" name="timerFullTime" value="10"> 10 minutes</label>
-          <label><input type="radio" name="timerFullTime" value="5"> 5 minutes</label>
+          <label><input type="radio" name="timerBreakTime" value="10"> 10 minutes</label>
+          <label><input type="radio" name="timerBreakTime" value="5"> 5 minutes</label>
         </div>
       </section>
     </main>
 
     <script src="js/script.js"></script>
     <script>
-      var timer = new Timer("timer");
-      timer.setFullTime(25 * 60 * 1000);
+      var timer = new Timer();
+      timer.setTimerClass("timer");
+      timer.setButtonStartPause("button");
+      timer.defaultFullTime();
+      timer.setButtonsFullTime("timerFullTime");
+      timer.setButtonsBreakFullTime("timerBreakTime");
     </script>
   </body>
 </html>
