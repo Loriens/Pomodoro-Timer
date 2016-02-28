@@ -124,6 +124,10 @@ main {
     content: '';
   }
 
+  input[type="radio"]:hover:before {
+    background-color: gray;
+  }
+
   input[type="radio"]:checked:before {
     color: #F3F3F3;
 
