@@ -37,14 +37,17 @@ main {
 }
 
   .timer {
+    margin: 40px 0;
+
   	font-size: 50px;
-  	margin: 40px 0;
   }
 
   .button {
   	width: 120px;
   	padding: 5px 15px;
+
   	font-size: 1.3em;
+
     color: #333;
     background-image: linear-gradient(#FFFFFF, #DDDDDD);
   	border: 1px solid black;
@@ -72,6 +75,7 @@ main {
 
     .radio-buttons {
       display: inline-block;
+
       vertical-align: top;
     }
 
@@ -81,13 +85,55 @@ main {
 
       .title-settings {
         margin-bottom: 10px;
+
         font-size: 1.2em;
         font-weight: bold;
       }
 
       .radio-buttons label {
         display: block;
+        margin-top: 5px;
+
         text-align: left;
       }
+
+  label {
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    position: relative;
+    left: -5px;
+    top: 0;
+  }
+
+  input[type="radio"]:before {
+    position: relative;
+    left: 0;
+    top: -2px;
+
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+
+    background-color: #AAAAAA;
+    border-radius: 8px;
+
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    content: '';
+  }
+
+  input[type="radio"]:checked:before {
+    color: #F3F3F3;
+
+    font-size: 30px;
+    text-align: center;
+
+    line-height: 18px;
+
+    content: "\2022";
+  }
+
 
 /* END MAIN */
