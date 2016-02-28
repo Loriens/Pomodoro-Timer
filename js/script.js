@@ -4,7 +4,7 @@ function Timer() {
   var fullTime = 25 * 60 * 1000;
   var currentTime = fullTime;
   var realFullTime; // for breaks
-  var breakFullTime = 4 * 1000;
+  var breakFullTime = 5 * 60 * 1000;
   var currentBreakFullTime = breakFullTime;
   var timerClass;
   var buttonStartPause;
@@ -61,7 +61,7 @@ function Timer() {
     }
   }
 
-  this.defaultFullTime = function() {
+  this.setDefaultFullTime = function() {
     minutes = 25;
     seconds = 0;
     setTimeHtml();
