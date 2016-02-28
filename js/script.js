@@ -79,7 +79,7 @@ function Timer() {
   }
 
   var start = function() {
-    if(!minutes && !seconds) this.setFullTime(fullTime);
+    if(!minutes && !seconds) self.setFullTime(fullTime);
     timer = setInterval(update, 1000);
     buttonStartPause.innerHTML = "Pause";
     buttonStartPause.onclick = stop;
