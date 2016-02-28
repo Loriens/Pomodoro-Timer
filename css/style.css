@@ -39,12 +39,42 @@ main {
   	border-radius: 5px;
   }
 
-    .button:active {
-  	  background-image: linear-gradient(to bottom, #898b91, #f7f7f7 10%);
-    }
+  .button:active {
+	  background-image: linear-gradient(to bottom, #898b91, #f7f7f7 10%);
+  }
 
   .button:first-child {
   	margin-right: 10px;
   }
+
+    .button:disabled {
+      color: #6E6E6E;
+      border-color: #6E6E6E;
+    }
+
+  .panel-settings {
+    display: none;
+    margin: 40px auto;
+  }
+
+    .radio-buttons {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .radio-buttons:last-child {
+      margin-left: 50px;
+    }
+
+      .title-settings {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .radio-buttons label {
+        display: block;
+        text-align: left;
+      }
 
 /* END MAIN */
