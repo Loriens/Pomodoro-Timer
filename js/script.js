@@ -3,6 +3,9 @@
 function Timer() {
   var fullTime = 25 * 60 * 1000;
   var currentTime = fullTime;
+  var realFullTime; // for breaks
+  var breakFullTime = 4 * 1000;
+  var currentBreakFullTime = breakFullTime;
   var timerClass;
   var buttonStartPause;
   var buttonSettings;
@@ -11,7 +14,6 @@ function Timer() {
   var buttonsBreakFullTime;
   var minutes;
   var seconds;
-  var breakFullTime = 5 * 60 * 1000;
   var timer;
   var self = this;
 
@@ -75,7 +77,7 @@ function Timer() {
   }
 
   this.setBreakFullTime = function(newBreakFullTime) {
-    breakFullTime = newBreakFullTime;
+    breakFullTime = currentBreakFullTime = newBreakFullTime;
   }
 
   var start = function() {
@@ -129,6 +131,17 @@ function Timer() {
     setTimeHtml();
     if(!minutes && !seconds) {
       stop();
+      if(fullTime != breakFullTime) {
+        realFullTime = fullTime;
+        self.setFullTime(breakFullTime);
+        start();
+        buttonStartPause.innerHTML = "Relax...";
+        buttonStartPause.disabled = true;
+      } else {
+        currentBreakFullTime = breakFullTime;
+        self.setFullTime(realFullTime);
+        buttonStartPause.disabled = false;
+      }
       return;
     }
     minusSecond();
