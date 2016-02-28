@@ -97,7 +97,7 @@ main {
         text-align: left;
       }
 
-  label {
+  label, input[type="radio"] {
     cursor: pointer;
   }
 
