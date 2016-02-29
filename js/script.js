@@ -9,6 +9,7 @@ function Timer() {
   var timerClass;
   var buttonStartPause;
   var buttonSettings;
+  var audio;
   var panelSettings;
   var buttonsFullTime;
   var buttonsBreakFullTime;
@@ -80,6 +81,10 @@ function Timer() {
     breakFullTime = currentBreakFullTime = newBreakFullTime;
   }
 
+  this.setAudio = function(className) {
+    audio = document.getElementsByClassName(className)[0];
+  }
+
   var start = function() {
     if(!minutes && !seconds) self.setFullTime(fullTime);
     timer = setInterval(update, 1000);
@@ -137,10 +142,14 @@ function Timer() {
         start();
         buttonStartPause.innerHTML = "Relax...";
         buttonStartPause.disabled = true;
+        buttonSettings.disabled = true;
+        sound();
       } else {
         currentBreakFullTime = breakFullTime;
         self.setFullTime(realFullTime);
         buttonStartPause.disabled = false;
+        buttonSettings.disabled = false;
+        sound();
       }
       return;
     }
@@ -165,5 +174,9 @@ function Timer() {
 
   var getFullMinutes = function() {
     return (fullTime - getFullSeconds() * 1000) / (1000 * 60);
+  }
+
+  var sound = function() {
+    audio.play();
   }
 }
