@@ -90,6 +90,7 @@ function Timer() {
     timer = setInterval(update, 1000);
     buttonStartPause.innerHTML = "Pause";
     buttonStartPause.onclick = stop;
+    buttonSettings.disabled = true;
   }
 
   var showSettings = function() {
@@ -129,6 +130,7 @@ function Timer() {
     clearInterval(timer);
     buttonStartPause.innerHTML = "Start";
     buttonStartPause.onclick = start;
+    buttonSettings.disabled = false;
   }
 
 
@@ -142,15 +144,12 @@ function Timer() {
         start();
         buttonStartPause.innerHTML = "Relax...";
         buttonStartPause.disabled = true;
-        buttonSettings.disabled = true;
-        sound();
       } else {
         currentBreakFullTime = breakFullTime;
         self.setFullTime(realFullTime);
         buttonStartPause.disabled = false;
-        buttonSettings.disabled = false;
-        sound();
       }
+      sound();
       return;
     }
     minusSecond();
