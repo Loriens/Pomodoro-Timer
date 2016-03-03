@@ -1,2 +1,5 @@
+sudo: required
+
 language: javascript
+
 script: js/test.js
