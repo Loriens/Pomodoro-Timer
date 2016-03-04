@@ -87,6 +87,7 @@ function Timer() {
 
   var start = function() {
     if(!minutes && !seconds) self.setFullTime(fullTime);
+    if(panelSettings.style.display == "block") hideSettings();
     timer = setInterval(update, 1000);
     buttonStartPause.innerHTML = "Pause";
     buttonStartPause.onclick = stop;
@@ -94,7 +95,6 @@ function Timer() {
   }
 
   var showSettings = function() {
-    buttonStartPause.disabled = true;
     stop();
     panelSettings.style.display = "block";
     buttonSettings.onclick = hideSettings;
@@ -102,7 +102,6 @@ function Timer() {
 
   var hideSettings = function() {
     panelSettings.style.display = "none";
-    buttonStartPause.disabled = false;
     buttonSettings.onclick = showSettings;
     buttonStartPause.onclick = start;
   }
