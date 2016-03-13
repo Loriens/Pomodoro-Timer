@@ -81,7 +81,7 @@ function Timer() {
     breakFullTime = currentBreakFullTime = newBreakFullTime;
   }
 
-  this.setAudio = function(className) {
+  this.setAudioClass = function(className) {
     audio = document.getElementsByClassName(className)[0];
   }
 
